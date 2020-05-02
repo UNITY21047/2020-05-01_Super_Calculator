@@ -28,7 +28,7 @@ namespace Super_Calculator
             string path_one = @"arithmetic.cs";
             string path_two = @"arithmetic.bat";
             string input_one = "using System;\n\nclass arithmetic\n{\n\tstatic void Main()\n\t{\n\t\tdouble math = "+ maths + ";\n\t\tConsole.WriteLine(\"Output:\" + math);\n\t\tConsole.ReadLine();\n\t}\n}";
-            string input_two = "csc -out:arithmetic.exe arithmetic.cs";
+            string input_two = "csc -out:arithmetic.exe arithmetic.cs\n";
 
             try
             {
@@ -47,6 +47,8 @@ namespace Super_Calculator
                 yield1.Close();
                 yield1.Dispose();
 
+                Console.WriteLine("Thinking...\n");
+
                 Thread.Sleep(2000);
 
                 yield2.StartInfo.FileName = "arithmetic.exe";
@@ -54,6 +56,7 @@ namespace Super_Calculator
                 yield2.WaitForExit();
                 yield2.Close();
                 yield2.Dispose();
+
 
                 Main();
             }
